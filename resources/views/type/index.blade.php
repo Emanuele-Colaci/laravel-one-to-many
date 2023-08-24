@@ -8,7 +8,7 @@
                     <h1>Tipologia</h1>
                 </div>
                 <div>
-                    <a href="{{ route('admin.project.create') }}" class="btn btn-success">Crea </a>
+                    <a href="{{ route('admin.types.create') }}" class="btn btn-success">Crea</a>
                 </div>
             </div>
             <div class="col-12 mt-5">
