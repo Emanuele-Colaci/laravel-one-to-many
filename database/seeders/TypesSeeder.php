@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Type;
+use App\Models\types;
 
 class TypesSeeder extends Seeder
 {
@@ -18,10 +18,11 @@ class TypesSeeder extends Seeder
         $types = ['Frontend', 'Backend', 'Fullstack', 'Design', 'DevOps'];
 
         foreach ($types as $type) {
-            $types = new Type();
+            $types = new types();
 
             $types->name = $type;
 
             $types->save();
+        }
     }
 }

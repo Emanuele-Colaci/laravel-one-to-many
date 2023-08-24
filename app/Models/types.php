@@ -11,7 +11,7 @@ class types extends Model
 
     protected $fillable = ['name'];
 
-    public function posts()
+    public function projects()
     {
         return $this->hasMany(Post::class);
     }
