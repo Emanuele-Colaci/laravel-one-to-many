@@ -78,9 +78,9 @@ class TypeController extends Controller
      * @param  \App\Models\Type  $types
      * @return \Illuminate\Http\Response
      */
-    public function edit(Type $types)
+    public function edit(Type $type)
     {
-        //
+        return view('type.edit', compact('type'));
     }
 
     /**
@@ -90,9 +90,15 @@ class TypeController extends Controller
      * @param  \App\Models\Type  $types
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatetypesRequest $request, Type $types)
+    public function update(UpdatetypesRequest $request, Type $type)
     {
-        //
+        $form_data = $request->all();
+
+        $type->update($form_data);
+
+        $message = 'Modifica Tipologia Completata';
+
+        return redirect()->route('admin.types.index', compact('type', 'message'));
     }
 
     /**
@@ -101,8 +107,12 @@ class TypeController extends Controller
      * @param  \App\Models\Type  $types
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Type $types)
+    public function destroy(Type $type)
     {
-        //
+        $type->delete();
+
+        $message = 'Cancellazione Tipologia Completata';
+
+        return redirect()->route('admin.types.index', compact('message'));
     }
 }

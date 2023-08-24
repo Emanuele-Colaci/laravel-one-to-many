@@ -28,7 +28,7 @@
                                 <label class="control-label my-3">Titolo</label>
                                 <input type="text" name="titolo" id="titolo" placeholder="Inserisci il titolo" class="form-control @error('titolo') is-invalid @enderror" value="{{ old('titolo') ?? $project->titolo}}" required>
                                 @error('titolo')
-                                    <div class="text-denger">{{ message }}</div>
+                                    <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div>

@@ -13,7 +13,7 @@ class UpdatetypesRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,13 @@ class UpdatetypesRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|max:30'
+        ];
+    }
+    public function messages(){
+        return[
+            'required'  => 'Il campo :attribute è obbligatorio.',
+            'max'       => 'Il campo :attribute non può superare :max caratteri.'
         ];
     }
 }
