@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Support\facades\Storage;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\types;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use Illuminate\Http\Request;
@@ -89,8 +90,9 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-     
-        return view('admin.post.edit', compact('project'));
+        $types = types::all();
+        
+        return view('admin.post.edit', compact('project', 'types'));
     }
 
     /**

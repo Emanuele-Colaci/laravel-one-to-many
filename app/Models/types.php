@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Project;
 
 class types extends Model
 {
@@ -13,6 +14,6 @@ class types extends Model
 
     public function projects()
     {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Project::class);
     }
 }
