@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController as DashboardController;
 
 use App\Http\Controllers\Admin\ProjectController as ProjectController;
+use App\Http\Controllers\Admin\TypesController as TypesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,7 @@ Route::get('/', function () {
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('project', ProjectController::class);
+    Route::resource('types', TypesController::class);
 });
 
 Route::middleware('auth')->group(function () {

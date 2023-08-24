@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\types;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoretypesRequest;
 use App\Http\Requests\UpdatetypesRequest;
@@ -15,9 +15,19 @@ class TypesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $datas = $request->all();
+
+        if(isset($datas['message'])){
+            $message = $datas['message'];
+        }else{
+            $message = '';
+        }
+
+        $types = Type::all();
+
+        return view('type.index', compact('types', 'message'));
     }
 
     /**
@@ -47,9 +57,9 @@ class TypesController extends Controller
      * @param  \App\Models\types  $types
      * @return \Illuminate\Http\Response
      */
-    public function show(types $types)
+    public function show(Type $types)
     {
-        //
+        return view('type.show', compact('types'));
     }
 
     /**
@@ -58,7 +68,7 @@ class TypesController extends Controller
      * @param  \App\Models\types  $types
      * @return \Illuminate\Http\Response
      */
-    public function edit(types $types)
+    public function edit(Type $types)
     {
         //
     }
@@ -67,10 +77,10 @@ class TypesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdatetypesRequest  $request
-     * @param  \App\Models\types  $types
+     * @param  \App\Models\Type  $types
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatetypesRequest $request, types $types)
+    public function update(UpdatetypesRequest $request, Type $types)
     {
         //
     }
@@ -81,7 +91,7 @@ class TypesController extends Controller
      * @param  \App\Models\types  $types
      * @return \Illuminate\Http\Response
      */
-    public function destroy(types $types)
+    public function destroy(Type $types)
     {
         //
     }
