@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoretypesRequest;
 use App\Http\Requests\UpdatetypesRequest;
 
-class TypesController extends Controller
+class TypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -54,18 +54,18 @@ class TypesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\types  $types
+     * @param  \App\Models\Type  $Type
      * @return \Illuminate\Http\Response
      */
-    public function show(Type $types)
+    public function show(Type $type)
     {
-        return view('type.show', compact('types'));
+        return view('type.show', compact('type'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\types  $types
+     * @param  \App\Models\Type  $types
      * @return \Illuminate\Http\Response
      */
     public function edit(Type $types)
@@ -88,7 +88,7 @@ class TypesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\types  $types
+     * @param  \App\Models\Type  $types
      * @return \Illuminate\Http\Response
      */
     public function destroy(Type $types)
