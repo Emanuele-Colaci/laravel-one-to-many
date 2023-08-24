@@ -16,12 +16,16 @@
             <div class="col-12">
                 <p>{{ $project->descrizione }}</p>
             </div>
-            <div class="my-12">
-            @if($project->type)
-                <h5 class="my-5">{{ $project->type_id->name }}</h5>
-            @else
-                <h5 class="my-5">Tipologia non disponibile</h5>
-            @endif
+            <div class="col-12">
+                <!-- VINCOLATO DAL NOME DELLA MODEL -->
+                <div class="my-5">
+                    @if(empty($project->type->name))
+                        <h3>Tipologia non disponibile</h3>
+                    @else
+                        <label class="fw-bold">Tipologia:</label>
+                        <h3>{{ $project->type->name }}</h3>
+                    @endif
+                </div>
             </div>
             <div class="col-12">
                 <div class="container-img">

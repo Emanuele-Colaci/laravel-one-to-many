@@ -54,6 +54,18 @@
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
+                            <div class="form-group my-4">
+                                <label class="control-label my-2">Tipologia:</label>
+                                <select name="type_id" id="type_id" class="form-control @error('type_id') is-invalid @enderror">
+                                    <option value="">Seleziona una Tipologia</option>
+                                    @foreach($types as $type)
+                                        <option {{ old('type_id') == $type->id ? 'selected' : '' }} value="{{ $type->id }}">{{ $type->name }}</option>
+                                    @endforeach
+                                </select>
+                                @error('type_id')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
                             <div class="col-12 text-center my-5">
                                 <!-- Submit Button -->
                                 <button type="submit" class="btn btn-success">Aggiungi</button>
